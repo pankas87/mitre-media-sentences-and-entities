@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Entity, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # Validations
+  it { should validate_presence_of(:text) }
+  it { should validate_presence_of(:type) }
+  it { should validate_presence_of(:sentence) }
+
+  # Associations
+  it { should belong_to(:sentence) }
 end
