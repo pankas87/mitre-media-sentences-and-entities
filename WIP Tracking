@@ -1,0 +1,39 @@
+Misc:
+
+- Install RSpec
+- Install Shoulda-Matchers
+
+1.- Create the models:
+  - Sentence:
+    - Text
+    - has_many :entities
+    - Validations:
+      - Presence of text
+  - Entities
+    - Text
+    - Type
+    - belongs_to :sentence
+    - Validations:
+      - Presence of text
+      - Presence of type
+      - Presence of sentence
+
+2.- Controllers:
+  - Index: All sentences
+    - Tests
+    - Implementation
+  - Show: Sentence by id
+    - Tests
+    - Implementation
+  - Show formatted sentences
+    - Tests
+    - Implementation
+
+3.- ActiveAdmin
+  - Creating sentences
+    - Including nested entities
+
+4.- Styling:
+  - Install Tailwind CSS
+  - Use Tailwind for sentence formatting, if it makes sense
+
