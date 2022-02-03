@@ -1,22 +1,8 @@
-Misc:
+0.- Misc:
 
--
+- Seeds: Include the examples from the bottom of the assignment
 
 1.- Create the models:
-  - Sentence:
-    - Text
-    - has_many :entities
-    - Validations:
-      - Presence of text
-  - Entities
-    - Text
-    - Type
-    - belongs_to :sentence
-    - Validations:
-      - Presence of text
-      - Presence of type
-      - Presence of sentence
-
 2.- Controllers:
   - Index: All sentences
     - Tests
