@@ -8,14 +8,12 @@ Misc:
     - has_many :entities
     - Validations:
       - Presence of text
-      - Text cannot be blank (Is presence: true enough?)
   - Entities
     - Text
     - Type
     - belongs_to :sentence
     - Validations:
       - Presence of text
-      - Text cannot be blank (Is presence: true enough?)
       - Presence of type
       - Presence of sentence
 
