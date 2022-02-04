@@ -1,8 +1,10 @@
 require "rails_helper"
 
-Rspec.describe "ViewSentences", :type => :system do
+RSpec.describe "ViewSentences", :type => :system do
   describe "List of Sentences" do
     it "shows a formatted list of sentences" do
+      visit "/sentences"
+
       pending "Assert: The list of sentences is correct"
       pending "Assert: The format is correct"
     end
