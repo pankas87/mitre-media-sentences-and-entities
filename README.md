@@ -16,8 +16,11 @@ rvm use 3.0.0
 # Install the project dependencies
 bundle install
 
-# Execute the migrations
+# Execute the DB migrations
 bundle exec rake db:migrate
+
+# Seed the DB
+bundle exec rake db:seed
 ```
 
 ## Starting up the server
