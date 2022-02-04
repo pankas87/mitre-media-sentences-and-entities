@@ -1,7 +1,7 @@
 class Entity < ApplicationRecord
   # Validations
   validates :text, presence: true
-  validates :type, presence: true
+  validates :type_of, presence: true
   validates :sentence, presence: true
 
   # Associations

@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2022_02_03_192940) do
 
   create_table "entities", force: :cascade do |t|
     t.text "text"
-    t.string "type"
+    t.string "type_of"
     t.integer "sentence_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
