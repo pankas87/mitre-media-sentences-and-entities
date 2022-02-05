@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+span.entity {
+    display: inline-block;
+    padding: 6px 9px;
+    border-radius: 6px;
+}
+
+span.entity span.type_of {
+    font-weight: bold;
+    font-size: 0.8em;
+}
