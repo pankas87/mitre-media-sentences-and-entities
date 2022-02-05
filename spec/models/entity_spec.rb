@@ -14,8 +14,8 @@ RSpec.describe Entity, type: :model do
       entities = Entity.all
 
       entities.each do |entity|
-        expected_text = "<span id=\"entity-#{entity.id}\" class=\"entity\">#{entity.text} "
-        expected_text += "<span class=\"type_of\" data-type-of=\"#{entity.type_of}\">#{entity.type_of}</span>"
+        expected_text = "<span id=\"entity-#{entity.id}\" class=\"entity\" data-type-of=\"#{entity.type_of}\">#{entity.text} "
+        expected_text += "<span class=\"type_of\">#{entity.type_of}</span>"
         expected_text += "</span>"
 
         expect(entity.formatted_text).to eq(expected_text)

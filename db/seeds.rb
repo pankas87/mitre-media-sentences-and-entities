@@ -13,8 +13,7 @@ sentences = [
                { text: "$1 billion", type_of: "MONEY" }]
   },
   {
-    sentence: "Regional funds with exposure to United States and outperform equity market over
-3 year",
+    sentence: "Regional funds with exposure to United States and outperform equity market over 3 year",
     entities: [{ text: "Regional funds", type_of: "THEME" },
                { text: "United States", type_of: "GPE" },
                { text: "equity market", type_of: "THEME" },

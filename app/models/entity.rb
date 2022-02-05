@@ -8,8 +8,8 @@ class Entity < ApplicationRecord
   belongs_to :sentence
 
   def formatted_text
-    formatted = "<span id=\"entity-#{self.id}\" class=\"entity\">#{self.text} "
-    formatted += "<span class=\"type_of\" data-type-of=\"#{self.type_of}\">#{self.type_of}</span>"
+    formatted = "<span id=\"entity-#{self.id}\" class=\"entity\" data-type-of=\"#{self.type_of}\">#{self.text} "
+    formatted += "<span class=\"type_of\">#{self.type_of}</span>"
     formatted += "</span>"
 
     formatted

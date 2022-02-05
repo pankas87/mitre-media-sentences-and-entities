@@ -1,1 +1,7 @@
-<h1>TOAD</h1>
+<h1>Sentences</h1>
+
+<% @sentences.each do |sentence| %>
+  <p id="sentence-<%= sentence.id %>">
+    <%= sentence.formatted_text.html_safe %>
+  </p>
+<% end %>
