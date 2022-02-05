@@ -1,23 +1,12 @@
-0.- Misc:
-
-- RSpec and Capybara - Fix webpack issue:
-  ActionView::Template::Error: Webpacker can't find application.js in /home/leonardo/Documents/Misc/Mitre Media Tech Assessment/mitre-media-sentences-and-entities/public/packs-test/manifest.json. Possible causes:
-    1. You want to set webpacker.yml value of compile to true for your environment unless you are using the `webpack -w` or the webpack-dev-server.
-    2. webpack has not yet re-run to reflect updates.
-    3. You have misconfigured Webpacker's config/webpacker.yml file.
-    4. Your webpack configuration is not creating a manifest.
-    Your manifest contains:
-    {
-    }
-
-1.- Create the models:
+1.- Models:
+  - Additional validations, check the specs
 2.- Controllers:
   - Index: All sentences
-    - Tests
+    x.- Tests
+      x.- HTML content: Ready
     - Implementation
-  - Show formatted sentences
-    - Tests
-    - Implementation
+      x.- HTML content: Ready
+      - CSS design
   - Show: Sentence by id (Optional, prioritize ActiveAdmin)
     - Tests
     - Implementation

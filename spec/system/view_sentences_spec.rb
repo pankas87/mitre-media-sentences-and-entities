@@ -23,29 +23,7 @@ RSpec.describe "ViewSentences", :type => :system do
           expect(entity_element.text).to include(entity.text)
           expect(type_of_element.text).to eq (entity.type_of)
         end
-
-        # TODO: CSS Stuff
-        #           - Add the CSS classes with the corresponding color for each type:
-        #             - Get all distinct types registered in the DB
-        #             - Deterministically generate a color for each type
-        #             - each_with_index sorted by alphabetical order
-        #             - Add to the CSS rules
-        #               <span class="type_of" data-type-of="Sovereign Country">
-        #               span.type_of {
-        #                 // width, height, padding and whatever stuff is necessary to display the rectangle correctly
-        #               }
-        #               span.type[data-type="Sovereign Country"] {
-        #                 background-color: #367544;
-        #               }
-        #             - TODO: Assert existence of CSS rules (Optional) (EXTREMELY OPTIONAL)
       end
-    end
-  end
-
-  describe "Show one Sentence" do
-    it "shows the requested sentence" do
-      pending "Assert: The displayed sentences is correct"
-      pending "Assert: The format is correct"
     end
   end
 end

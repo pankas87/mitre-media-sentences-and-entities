@@ -15,7 +15,8 @@ RSpec.describe Sentence, type: :model do
         expected_text = sentence.text
 
         sentence.entities.each do |entity|
-          expected_text = expected_text.gsub(/#{entity.text}/, entity.formatted_text)
+          regex_for_find_and_replace = Regexp.new Regexp.quote entity.text
+          expected_text = expected_text.gsub(regex_for_find_and_replace, entity.formatted_text)
         end
 
         expect(sentence.formatted_text).to eq(expected_text)

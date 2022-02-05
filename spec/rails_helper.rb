@@ -64,11 +64,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  config.before(:suite) do
-    # Loading DB seeds
-    Rails.application.load_seed
-  end
-
   config.before(:each, type: :system, js: false) do
     driven_by :selenium_chrome_headless
   end

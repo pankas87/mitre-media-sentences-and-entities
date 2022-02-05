@@ -18,9 +18,11 @@ bundle install
 
 # Execute the DB migrations
 bundle exec rake db:migrate
+RAILS_ENV=test bundle exec rake db:migrate
 
 # Seed the DB
 bundle exec rake db:seed
+RAILS_ENV=test bundle exec rake db:seed
 ```
 
 ## Starting up the server
