@@ -7,7 +7,20 @@
   - Controllers:
     - Create Entity
       - POST /sentences/:id/entities (Check if this is the correct form)
+      - Retrieve the sentence from DB using the ID
+        - If it does not exist, return 404 (Use exception handling of not found record to trigger the 404, I remember a Rails way to do this)
+      - Read and concatenate the list of words
+      - Read the type of entity
+      - Try to create the record
+        - If it succeeds:
+          - Redirect to sentence view page
+        - If it fails
+          - Redirect to sentence view page with a flash error message (Show with plain HTML, for now)
     - View Sentence
       - Display formatted sentence
       - Display available words, with button to add to the "New Entity" form
       - New Entity form
+      - Javascript functionality (Try to write tests for this)
+  - Styling:
+    - After it's working, may be consider using Tailwind for styling everything (Forms included)
+    - Flash error message: Style and may be use sweet alerts or something like that that exists in Tailwind
