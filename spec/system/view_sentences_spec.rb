@@ -29,7 +29,7 @@ RSpec.describe "ViewSentences", :type => :system do
       expect(sentences.length > 0).to be true
 
       sentences.each_with_index do |sentence, i|
-        # TODO: With this one just validate that the sentences are print, without using the custom text formatting method
+        # TODO: With this one just validate that the sentences are printed, without using the custom text formatting method
         element_selector = "#sentence-1"
         element = find(element_selector)
 
