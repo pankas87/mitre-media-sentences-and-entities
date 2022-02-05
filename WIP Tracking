@@ -1,17 +1,13 @@
-1.- Models:
-  - Additional validations, check the specs
-2.- Controllers:
-  - Index: All sentences
-    x.- Tests
-      x.- HTML content: Ready
-    - Implementation
-      x.- HTML content: Ready
-      - CSS design
-  - Show: Sentence by id (Optional, prioritize ActiveAdmin)
-    - Tests
-    - Implementation
-
-3.- ActiveAdmin
-  - Creating sentences
-    - Including nested entities
-
+- Select words to create a new entity:
+  - Models:
+    - Entity:
+      - Validations:
+        - The entity text must be present in the original sentence
+        - The entity text cannot be exactly equal to the text of any of the other sentence entities (Text is available)
+  - Controllers:
+    - Create Entity
+      - POST /sentences/:id/entities (Check if this is the correct form)
+    - View Sentence
+      - Display formatted sentence
+      - Display available words, with button to add to the "New Entity" form
+      - New Entity form

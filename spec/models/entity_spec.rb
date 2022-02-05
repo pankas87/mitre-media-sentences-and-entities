@@ -24,7 +24,12 @@ RSpec.describe Entity, type: :model do
   end
 
   describe "presence of entity in sentence" do
-    pending "it should raise a validation error if the entity text is not present in the text of the parent sentence"
-    pending "it should not raise a validation error if the entity text is present in the text of the parent sentence"
+    pending "it should raise a validation error if the entity's text is not present in the text of the parent sentence"
+    pending "it should not raise a validation error if the entity's text is present in the text of the parent sentence"
+  end
+
+  describe "prevent duplicated entities for the same parent setting when saving" do
+    pending "it should raise a validation error if the entity's text is already being used by a sibling entity"
+    pending "it should not raise a validation error if the entity's text is not being used by a sibling entity"
   end
 end

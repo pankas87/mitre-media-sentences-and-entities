@@ -26,4 +26,26 @@ RSpec.describe "ViewSentences", :type => :system do
       end
     end
   end
+
+  describe "Individual Sentence" do
+    it "shows the formatted sentence" do
+      pending "Implement"
+    end
+
+    # Available words: Words that are part of the sentence that are not part of an entity yet
+    it "shows a list of available words that can be combined to create a new entity" do
+      pending "implement"
+    end
+
+    it "displays the New Entity form" do
+      # Probable inputs:
+      #   - A sentence_id hidden field
+      #   - A type_of text input
+      #   - Via JS, when a word is added (Try and test this):
+      #     - For every word, one text input with the name words[] to group them in one array
+      pending "implement"
+    end
+
+    pending "for the creation of the New Entity, use a request spec that receives the parameters via HTML form"
+  end
 end
