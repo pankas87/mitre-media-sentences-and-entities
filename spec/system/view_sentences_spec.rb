@@ -16,8 +16,8 @@ RSpec.describe "ViewSentences", :type => :system do
       #             - Deterministically generate a color for each type
       #             - each_with_index sorted by alphabetical order
       #             - Add to the CSS rules
-      #               <span class="type" data-type="Sovereign Country">
-      #               span.type {
+      #               <span class="type_of" data-type-of="Sovereign Country">
+      #               span.type_of {
       #                 // width, height, padding and whatever stuff is necessary to display the rectangle correctly
       #               }
       #               span.type[data-type="Sovereign Country"] {

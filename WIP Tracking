@@ -11,25 +11,18 @@
     }
 
 1.- Create the models:
-  - Tests:
-    - Entity:
-      - Every entity stored for a sentence must be present in the text of said sentence
 2.- Controllers:
   - Index: All sentences
     - Tests
     - Implementation
-  - Show: Sentence by id
+  - Show formatted sentences
     - Tests
     - Implementation
-  - Show formatted sentences
+  - Show: Sentence by id (Optional, prioritize ActiveAdmin)
     - Tests
     - Implementation
 
 3.- ActiveAdmin
   - Creating sentences
     - Including nested entities
-
-4.- Styling:
-  - Install Tailwind CSS
-  - Use Tailwind for sentence formatting, if it makes sense
 
