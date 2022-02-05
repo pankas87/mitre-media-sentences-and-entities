@@ -11,6 +11,19 @@ RSpec.describe "ViewSentences", :type => :system do
       # TODO: Expect that for every sentence in the DB, there is one corresponding <li> with the correct format
       #         - Create the formatted_text in both the Entity and Sentence models
       #           - Format by adding <span> element for entities
+      #           - Add the CSS classes with the corresponding color for each type:
+      #             - Get all distinct types registered in the DB
+      #             - Deterministically generate a color for each type
+      #             - each_with_index sorted by alphabetical order
+      #             - Add to the CSS rules
+      #               <span class="type" data-type="Sovereign Country">
+      #               span.type {
+      #                 // width, height, padding and whatever stuff is necessary to display the rectangle correctly
+      #               }
+      #               span.type[data-type="Sovereign Country"] {
+      #                 background-color: #367544;
+      #               }
+      #             - TODO: Assert existence of CSS rules (Optional)
 
       sentences = Sentence.all
       expect(sentences.length > 0).to be true
