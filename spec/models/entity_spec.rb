@@ -40,20 +40,20 @@ RSpec.describe Entity, type: :model do
   end
 
   describe "prevent duplicated entities for the same parent sentence when saving" do
-    describe "new sentence" do
-      it "is a duplicate" do
-      end
-
-      it "is not a duplicate" do
-      end
-    end
-
     describe "existing sentence" do
       it "is a duplicate" do
-      end
+        original_sentence_text = "Capital yield risk substantially receive public. Hedge fund Nikkei market index performance"
+        sentence = Sentence.new(text: original_sentence_text)
+        sentence.entities = [
+          Entity.new(text: "Capital yield", type_of: "Financial Concept"),
+          Entity.new(text: "Hedge Fund", type_of: "Financial Institution"),
+          Entity.new(text: "Nikkei", type_of: "Stock Market Index")
+        ]
+        sentence.save
 
-      it "is not a duplicate" do
-
+        entity = Entity.new(text: "Nikkei", type_of: "Index", sentence: sentence)
+        expect(entity.valid?).to be false
+        expect(entity.errors[:text]).to eq(["Entity's text must be present in the original sentence"])
       end
     end
   end

@@ -51,7 +51,7 @@ RSpec.describe Sentence, type: :model do
         expect(sentence.available_phrases).to eq(expected_phrases)
       end
 
-      # TODO: Make text multiline with paragraph and shit
+      # TODO: Make text multiline with paragraph and shit (If time is available)
       pending "case 3: Tax growth 401k volatile yield management holder. Private IRA junk bonds corporate corporate bonds funds exchange investment grade bonds managed comodity Fitch bull stocks. Fitch upswing notes financial health established taxpayer. Managed quarterly debt term Moody's industry Standard & Poor's corporate. Nikkei Fitch volatile. "
     end
   end

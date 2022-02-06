@@ -18,6 +18,7 @@ class Entity < ApplicationRecord
 
   private
 
+  # TODO: Refactor with a more functional approach (If time is available)
   def presence_of_text_in_original_sentence_available_phrases
     present = false
     available_phrases = self.sentence.available_phrases
