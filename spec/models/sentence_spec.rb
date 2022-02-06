@@ -23,4 +23,32 @@ RSpec.describe Sentence, type: :model do
       end
     end
   end
+
+  describe "#available_phrases" do
+    describe "phrase: consecutive sections of words not separated by an entity" do
+      it "case 1" do
+        sentence = Sentence.new text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        sentence.entities = [
+          Entity.new({text: "dolor sit", type_of: "GES"}),
+          Entity.new({text: "consectetur", type_of: "ASD"}),
+        ]
+        sentence.save
+        expected_phrases = [
+          "Lorem ipsum ",
+          " amet, ",
+          " adipiscing elit",
+        ]
+
+        expect(sentence.available_phrases).to eq(expected_phrases)
+      end
+
+      it "case 2" do
+        sentence = Sentence.new text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        sentence.save
+        expected_phrases = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit"]
+
+        expect(sentence.available_phrases).to eq(expected_phrases)
+      end
+    end
+  end
 end
