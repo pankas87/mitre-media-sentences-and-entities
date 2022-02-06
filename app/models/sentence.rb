@@ -24,6 +24,7 @@ class Sentence < ApplicationRecord
       split_pattern = Regexp.new(Regexp.quote(entity.text))
       phrases = phrases.reduce([]) do |acc, phrase|
         splat_phrase = phrase.split(split_pattern)
+        splat_phrase = splat_phrase.map(&:strip)
         acc.push(*splat_phrase)
       end
     end

@@ -34,9 +34,9 @@ RSpec.describe Sentence, type: :model do
         ]
         sentence.save
         expected_phrases = [
-          "Lorem ipsum ",
-          " amet, ",
-          " adipiscing elit",
+          "Lorem ipsum",
+          "amet,",
+          "adipiscing elit",
         ]
 
         expect(sentence.available_phrases).to eq(expected_phrases)
