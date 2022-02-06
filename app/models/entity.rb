@@ -3,6 +3,7 @@ class Entity < ApplicationRecord
   validates :text, presence: true
   validates :type_of, presence: true
   validates :sentence, presence: true
+  validate :presence_of_text_in_original_sentence_available_phrases
 
   # Associations
   belongs_to :sentence
@@ -13,5 +14,23 @@ class Entity < ApplicationRecord
     formatted += "</span>"
 
     formatted
+  end
+
+  private
+
+  def presence_of_text_in_original_sentence_available_phrases
+    present = false
+    available_phrases = self.sentence.available_phrases
+
+    available_phrases.each do |phrase|
+      if phrase.include?(self.text)
+        present = true
+        break
+      end
+    end
+
+    unless present
+      self.errors.add(:text, "Entity's text must be present in the original sentence")
+    end
   end
 end

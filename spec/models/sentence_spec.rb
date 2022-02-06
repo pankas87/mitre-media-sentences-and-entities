@@ -29,10 +29,11 @@ RSpec.describe Sentence, type: :model do
       it "case 1" do
         sentence = Sentence.new text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
         sentence.entities = [
-          Entity.new({text: "dolor sit", type_of: "GES"}),
-          Entity.new({text: "consectetur", type_of: "ASD"}),
+          Entity.new(text: "dolor sit", type_of: "GES"),
+          Entity.new(text: "consectetur", type_of: "ASD"),
         ]
         sentence.save
+        # TODO: Optional, remove punctuation
         expected_phrases = [
           "Lorem ipsum",
           "amet,",
@@ -49,6 +50,9 @@ RSpec.describe Sentence, type: :model do
 
         expect(sentence.available_phrases).to eq(expected_phrases)
       end
+
+      # TODO: Make text multiline with paragraph and shit
+      pending "case 3: Tax growth 401k volatile yield management holder. Private IRA junk bonds corporate corporate bonds funds exchange investment grade bonds managed comodity Fitch bull stocks. Fitch upswing notes financial health established taxpayer. Managed quarterly debt term Moody's industry Standard & Poor's corporate. Nikkei Fitch volatile. "
     end
   end
 end
