@@ -36,7 +36,7 @@ RSpec.describe Sentence, type: :model do
         # TODO: Optional, remove punctuation
         expected_phrases = [
           "Lorem ipsum",
-          "amet",
+          "amet,",
           "adipiscing elit",
         ]
 
