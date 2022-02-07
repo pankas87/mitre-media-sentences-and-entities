@@ -1,5 +1,3 @@
-- Models:
-  - Remove punctuation from Sentence#available_phrases
 - Select words to create a new entity:
   - Controllers:
     - Create Entity
