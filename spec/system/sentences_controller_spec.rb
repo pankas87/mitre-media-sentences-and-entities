@@ -61,15 +61,15 @@ RSpec.describe "ViewSentences", :type => :system do
 
       sentence.available_phrases.each_with_index do |phrase, phrase_index|
         available_phrase_wrapper = find("#sentence-#{sentence.id}-available-phrase-#{phrase_index}")
-        full_phrase_paragraph = available_phrase_wrapper.find(".full-phrase")
+        full_phrase_span = available_phrase_wrapper.find(".full-phrase span.text-to-add")
 
         expect(available_phrase_wrapper).not_to be_nil
-        expect(full_phrase_paragraph.text).to eq(phrase)
+        expect(full_phrase_span.text).to eq(phrase)
 
         phrase_words_list = available_phrase_wrapper.find("ul.phrase-words-list")
 
         phrase.split(/\s/).each_with_index do |word, word_index|
-          selector = ".word-#{word_index}"
+          selector = ".word-#{word_index} span.text-to-add"
           word_element = phrase_words_list.find(selector)
 
           expect(word_element).not_to be_nil
