@@ -5,16 +5,10 @@
     - Create Entity
     - View Sentence
       - GET /sentences/:id
-      - Interactive behavior
-        - Pick whole phrase for entity's text
-        - Pick words for entity's text
         - Make it work, then perfect if time is available:
           - Add bootstrap validations to the form
   - Styling:
     - Style for GET /sentences/:id
-      - Style the form as a Bootstrap type of form
-      - Style the phrases and words
-      - Add the [+] button that add the word to the text value of the New Entity Form
-    - Flash error message: Style and may be use sweet alerts or something like that that exists in Tailwind
+      - Flash error message: Style and may be use sweet alerts or something like that that exists in Tailwind
 - Documentation:
   - List of the existing routes and their functionality
