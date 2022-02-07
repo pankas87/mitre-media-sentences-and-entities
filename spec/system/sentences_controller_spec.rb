@@ -61,16 +61,47 @@ RSpec.describe "ViewSentences", :type => :system do
 
       expect(element).not_to be_nil
 
-      sentence.available_phrases.each do |phrase|
-        # Expect every word of the available phrase to be present in a corresponding wrapper element
+      sentence.available_phrases.each_with_index do |phrase, phrase_index|
+        available_phrase_wrapper = find("#sentence-#{sentence.id}-available-phrase-#{phrase_index}")
+        full_phrase_paragraph = available_phrase_wrapper.find(".full-phrase")
+
+        expect(available_phrase_wrapper).not_to be_nil
+        expect(full_phrase_paragraph.text).to eq(phrase)
+
+        phrase_words_list = available_phrase_wrapper.find("ul.phrase-words-list")
+
+        pending "Split available phrase into words, test individually"
+        phrase.split(/\s/).each_with_index do |word, word_index|
+          selector = ".word-#{word_index}"
+          word_element = phrase_words_list.find(selector)
+
+          expect(word_element).not_to be_nil
+          expect(word_element.text).to eq(word)
+        end
+
       end
     end
 
     it "displays the New Entity form" do
-      # Probable inputs:
-      #   - A type_of text input
-      #   - A text text input
-      pending "implement"
+      sentence = Sentence.first
+      visit "/sentences/#{sentence.id}"
+
+      #TODO: Implement
+      element_selector = "#new-entity-form"
+      element = find(element_selector)
+
+      expect(element).not_to be_nil
+
+      # Form Assertions:
+      text_text_input_selector = element.find("#text-text-input")
+      type_of_text_input_selector = element.find("#type_of-text-input")
+      submit_selector = element.find("button[type=\"submit\"]")
+
+
+      expect(text_text_input_selector).not_to be_nil
+      expect(type_of_text_input_selector).not_to be_nil
+      expect(submit_selector).not_to be_nil
+      pending "The action and method attributes of the form are correct"
     end
   end
 end

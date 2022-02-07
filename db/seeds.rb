@@ -23,6 +23,9 @@ sentences = [
 
 sentences.each do |s|
   sentence = Sentence.new text: s[:sentence]
-  sentence.entities = s[:entities].map { |e| Entity.new text: e[:text], type_of: e[:type_of] }
-  sentence.save
+  sentence.save!
+
+  s[:entities].each do |e|
+    Entity.create!({text: e[:text], type_of: e[:type_of], sentence: sentence })
+  end
 end

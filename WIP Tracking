@@ -1,27 +1,19 @@
 - Select words to create a new entity:
-  - Models:
-    - Entity:
-      - Validations:
-        - The entity text must be present in the original sentence
-        - The entity text cannot be exactly equal to the text of any of the other sentence entities (Text is available)
   - Controllers:
     - Create Entity
-      - POST /sentences/:id/entities (Check if this is the correct form)
-      - Retrieve the sentence from DB using the ID
-        - If it does not exist, return 404 (Use exception handling of not found record to trigger the 404, I remember a Rails way to do this)
-      - Read and concatenate the list of words
-      - Read the type of entity
-      - Try to create the record
-        - If it succeeds:
-          - Redirect to sentence view page
-        - If it fails
+        - If Saving the entity fails
           - Redirect to sentence view page with a flash error message (Show with plain HTML, for now)
     - View Sentence
       - GET /sentences/:id
-      - Display formatted sentence
-      - Display available words, with button to add to the "New Entity" form
-      - New Entity form
-      - Javascript functionality (Try to write tests for this)
+      x.- Display formatted sentence
+      - Display available words
+      - New Entity form:
+        - Should work by manually adding the words
+      - Interactive behavior
+        - Pick whole phrase for entity's text
+        - Pick words for entity's text
+        - After this is working, priorize styling
+        - Make it work, then perfect if time is available.
   - Styling:
     - After it's working, may be consider using Tailwind for styling everything (Forms included)
     - Flash error message: Style and may be use sweet alerts or something like that that exists in Tailwind

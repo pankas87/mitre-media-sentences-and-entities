@@ -1,3 +1,36 @@
 <h1>Sentence: <%= @sentence.id %></h1>
 
 <p id="sentence-<%= @sentence.id %>"><%= @sentence.formatted_text.html_safe %></p>
+
+<h2>Available Phrases</h2>
+
+<% @sentence.available_phrases.each_with_index do |phrase, phrase_index| %>
+  <!-- TODO: Test presence of this in existing test-->
+  <div id="sentence-<%=@sentence.id %>-available-phrase-<%= phrase_index %>" class="available-phrase">
+    <p class="full-phrase"><%=phrase%></p>
+
+    <ul>
+      <% phrase.split(/\s/).each_with_index do |word, word_index| %>
+        <li class="<%= "word-#{word_index}" %>"><%= word %></li>
+      <%end %>
+    </ul>
+  </div>
+
+  <hr>
+<% end %>
+
+<h2>Create New Entity</h2>
+
+<form id="new-entity-form" method="POST" action="<%= "/sentences/#{@sentence.id}/entities" %>">
+  <fieldset>
+    <label>Text:</label>
+    <input id="text-text-input" type="text" name="text">
+  </fieldset>
+  <fieldset>
+    <label>Type:</label>
+    <input id="type_of-text-input" type="text" name="type_of">
+  </fieldset>
+  <fieldset>
+    <button type="submit">Submit</button>
+  </fieldset>
+</form>
