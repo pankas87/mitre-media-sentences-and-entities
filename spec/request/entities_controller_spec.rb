@@ -8,7 +8,7 @@ describe 'EntitiesController', type: :request do
         sentence = Sentence.first
         text = sentence.available_phrases[0]
         params = {text: text, type_of: "Financial Market"}
-        post "/sentences/#{sentence.id}/entity", params: params
+        post "/sentences/#{sentence.id}/entities", params: params
 
         # HTTP Response assertions
         expect(response).to redirect_to("/sentences/#{sentence.id}")
@@ -27,7 +27,7 @@ describe 'EntitiesController', type: :request do
         sentence = Sentence.first
         text = sentence.entities[0].text
         params = {text: text, type_of: "Financial Market"}
-        post "/sentences/#{sentence.id}/entity", params: params
+        post "/sentences/#{sentence.id}/entities", params: params
 
         # HTTP Response assertions
         expect(response).to redirect_to("/sentences/#{sentence.id}")

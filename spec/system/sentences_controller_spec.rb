@@ -9,8 +9,6 @@ RSpec.describe "ViewSentences", :type => :system do
 
       sentences = Sentence.all
 
-      pending "For every sentence, add a link button to the show page, test that the button is present"
-
       sentences.each_with_index do |sentence, i|
         element_selector = "#sentence-#{sentence.id}"
         element = find(element_selector)
@@ -70,7 +68,6 @@ RSpec.describe "ViewSentences", :type => :system do
 
         phrase_words_list = available_phrase_wrapper.find("ul.phrase-words-list")
 
-        pending "Split available phrase into words, test individually"
         phrase.split(/\s/).each_with_index do |word, word_index|
           selector = ".word-#{word_index}"
           word_element = phrase_words_list.find(selector)
@@ -86,22 +83,20 @@ RSpec.describe "ViewSentences", :type => :system do
       sentence = Sentence.first
       visit "/sentences/#{sentence.id}"
 
-      #TODO: Implement
-      element_selector = "#new-entity-form"
+      element_selector = "form[action=\"/sentences/#{sentence.id}/entities\"][method=\"POST\"]"
       element = find(element_selector)
 
       expect(element).not_to be_nil
 
       # Form Assertions:
-      text_text_input_selector = element.find("#text-text-input")
-      type_of_text_input_selector = element.find("#type_of-text-input")
-      submit_selector = element.find("button[type=\"submit\"]")
+      text_input = element.find("#text")
+      type_of_input = element.find("#type_of")
+      submit = element.find("input[type=\"submit\"]")
 
 
-      expect(text_text_input_selector).not_to be_nil
-      expect(type_of_text_input_selector).not_to be_nil
-      expect(submit_selector).not_to be_nil
-      pending "The action and method attributes of the form are correct"
+      expect(text_input).not_to be_nil
+      expect(type_of_input).not_to be_nil
+      expect(submit).not_to be_nil
     end
   end
 end

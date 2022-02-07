@@ -17,7 +17,10 @@ sentences = [
     entities: [{ text: "Regional funds", type_of: "THEME" },
                { text: "United States", type_of: "GPE" },
                { text: "equity market", type_of: "THEME" },
-               { text: "3 year", type_of: "TIME" }]
+               { text: "3 year", type_of: "TIME" }],
+  },
+  {
+    sentence: "Capital yield risk substantially receive public. Hedge fund Nikkei market index performance capital index volatile exchange traded funds gains downturn. NASDAQ inverse money shares district called passively exchange fall Fitch fiat 401k retirement NYSE. "
   }
 ]
 
@@ -25,7 +28,7 @@ sentences.each do |s|
   sentence = Sentence.new text: s[:sentence]
   sentence.save!
 
-  s[:entities].each do |e|
+  s[:entities].try(:each) do |e|
     Entity.create!({text: e[:text], type_of: e[:type_of], sentence: sentence })
   end
 end

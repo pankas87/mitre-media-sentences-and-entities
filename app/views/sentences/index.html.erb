@@ -1,7 +1,10 @@
 <h1>Sentences</h1>
 
-<% @sentences.each do |sentence| %>
-  <p id="sentence-<%= sentence.id %>">
-    <%= sentence.formatted_text.html_safe %>
-  </p>
-<% end %>
+<ol>
+  <% @sentences.each do |sentence| %>
+    <li id="sentence-<%= sentence.id %>">
+      <%= sentence.formatted_text.html_safe %>
+      <%= link_to "View", "/sentences/#{sentence.id}" %>
+    </li>
+  <% end %>
+</ol>

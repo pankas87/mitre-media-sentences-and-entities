@@ -5,11 +5,10 @@
 <h2>Available Phrases</h2>
 
 <% @sentence.available_phrases.each_with_index do |phrase, phrase_index| %>
-  <!-- TODO: Test presence of this in existing test-->
   <div id="sentence-<%=@sentence.id %>-available-phrase-<%= phrase_index %>" class="available-phrase">
     <p class="full-phrase"><%=phrase%></p>
 
-    <ul>
+    <ul class="phrase-words-list">
       <% phrase.split(/\s/).each_with_index do |word, word_index| %>
         <li class="<%= "word-#{word_index}" %>"><%= word %></li>
       <%end %>
@@ -21,16 +20,18 @@
 
 <h2>Create New Entity</h2>
 
-<form id="new-entity-form" method="POST" action="<%= "/sentences/#{@sentence.id}/entities" %>">
+<%= form_with url: "/sentences/#{@sentence.id}/entities", method: :post do |form| %>
   <fieldset>
-    <label>Text:</label>
-    <input id="text-text-input" type="text" name="text">
+    <%= form.label :text, "Text:" %>
+    <%= form.text_field :text %>
   </fieldset>
+
   <fieldset>
-    <label>Type:</label>
-    <input id="type_of-text-input" type="text" name="type_of">
+    <%= form.label :text, "Type:" %>
+    <%= form.text_field :type_of %>
   </fieldset>
+
   <fieldset>
-    <button type="submit">Submit</button>
+    <%= form.submit "Create New Entity" %>
   </fieldset>
-</form>
+<% end %>

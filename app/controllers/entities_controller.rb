@@ -5,7 +5,10 @@ class EntitiesController < ApplicationController
     @entity = Entity.new(sentence_params)
     @entity.sentence = @sentence
     # TODO: Set flash error message for the frontend (If time is available)
-    @entity.save
+    unless @entity.save
+      flash[:error] = @entity.errors
+    end
+
     redirect_to "/sentences/#{@sentence.id}"
   end
 

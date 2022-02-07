@@ -21,12 +21,14 @@ class Entity < ApplicationRecord
   # TODO: Refactor with a more functional approach (If time is available)
   def presence_of_text_in_original_sentence_available_phrases
     present = false
-    available_phrases = self.sentence.available_phrases
+    if self.sentence.present?
+      available_phrases = self.sentence.available_phrases
 
-    available_phrases.each do |phrase|
-      if phrase.include?(self.text)
-        present = true
-        break
+      available_phrases.each do |phrase|
+        if phrase.include?(self.text)
+          present = true
+          break
+        end
       end
     end
 
