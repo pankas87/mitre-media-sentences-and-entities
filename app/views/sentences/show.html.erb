@@ -9,11 +9,19 @@
     <h2>Available Phrases</h2>
     <% @sentence.available_phrases.each_with_index do |phrase, phrase_index| %>
       <div id="sentence-<%=@sentence.id %>-available-phrase-<%= phrase_index %>" class="available-phrase">
-        <p class="full-phrase"><%=phrase%></p>
+        <h3>Full Phrase:</h3>
+        <p class="full-phrase add-to-text">
+          <span class="text-to-add"><%=phrase%></span>
+          <button class="btn btn-link add-text-button">[+]</button>
+        </p>
 
+        <h3>Words:</h3>
         <ul class="phrase-words-list">
           <% phrase.split(/\s/).each_with_index do |word, word_index| %>
-            <li class="<%= "word-#{word_index}" %>"><%= word %></li>
+            <li class="<%= "word-#{word_index}" %> add-to-text">
+              <span class="text-to-add"><%=word%></span>
+              <button class="btn btn-link add-text-button">[+]</button>
+            </li>
           <%end %>
         </ul>
       </div>
@@ -25,18 +33,20 @@
   <section class="col-sm-6">
     <h2>Create New Entity</h2>
 
+    <!-- TODO: Add flash error messages -->
+
     <%= form_with url: "/sentences/#{@sentence.id}/entities", method: :post do |form| %>
-      <fieldset class="mb-3">
+      <fieldset class="mb-6">
         <%= form.label :text, "Text:", { class: "form-label" } %>
         <%= form.text_field :text, { class: "form-control" } %>
       </fieldset>
 
-      <fieldset class="mb-3">
+      <fieldset class="mb-1">
         <%= form.label :text, "Type:", { class: "form-label" } %>
         <%= form.text_field :type_of, { class: "form-control" } %>
       </fieldset>
 
-      <fieldset class="mb-3">
+      <fieldset class="mb-1">
         <%= form.submit "Create New Entity", { class: "btn btn-primary" } %>
       </fieldset>
     <% end %>

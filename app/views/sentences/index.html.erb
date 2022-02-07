@@ -5,7 +5,7 @@
 <article class="row">
   <ol class="list-group">
     <% @sentences.each do |sentence| %>
-      <li id="sentence-<%= sentence.id %>" class="list-group-item">
+      <li id="sentence-<%= sentence.id %>" class="list-group-item" class="mb-1">
         <%= sentence.formatted_text.html_safe %>
         <br>
         <%= link_to "View", "/sentences/#{sentence.id}" %>
