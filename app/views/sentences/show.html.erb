@@ -1,37 +1,44 @@
-<h1>Sentence: <%= @sentence.id %></h1>
+<header class="row">
+  <h1>Sentence: <%= @sentence.id %></h1>
 
-<p id="sentence-<%= @sentence.id %>"><%= @sentence.formatted_text.html_safe %></p>
+  <p id="sentence-<%= @sentence.id %>"><%= @sentence.formatted_text.html_safe %></p>
+</header>
 
-<h2>Available Phrases</h2>
+<section class="row">
+  <section class="col-sm-6">
+    <h2>Available Phrases</h2>
+    <% @sentence.available_phrases.each_with_index do |phrase, phrase_index| %>
+      <div id="sentence-<%=@sentence.id %>-available-phrase-<%= phrase_index %>" class="available-phrase">
+        <p class="full-phrase"><%=phrase%></p>
 
-<% @sentence.available_phrases.each_with_index do |phrase, phrase_index| %>
-  <div id="sentence-<%=@sentence.id %>-available-phrase-<%= phrase_index %>" class="available-phrase">
-    <p class="full-phrase"><%=phrase%></p>
+        <ul class="phrase-words-list">
+          <% phrase.split(/\s/).each_with_index do |word, word_index| %>
+            <li class="<%= "word-#{word_index}" %>"><%= word %></li>
+          <%end %>
+        </ul>
+      </div>
 
-    <ul class="phrase-words-list">
-      <% phrase.split(/\s/).each_with_index do |word, word_index| %>
-        <li class="<%= "word-#{word_index}" %>"><%= word %></li>
-      <%end %>
-    </ul>
-  </div>
+      <hr>
+    <% end %>
+  </section>
 
-  <hr>
-<% end %>
+  <section class="col-sm-6">
+    <h2>Create New Entity</h2>
 
-<h2>Create New Entity</h2>
+    <%= form_with url: "/sentences/#{@sentence.id}/entities", method: :post do |form| %>
+      <fieldset class="mb-3">
+        <%= form.label :text, "Text:", { class: "form-label" } %>
+        <%= form.text_field :text, { class: "form-control" } %>
+      </fieldset>
 
-<%= form_with url: "/sentences/#{@sentence.id}/entities", method: :post do |form| %>
-  <fieldset>
-    <%= form.label :text, "Text:" %>
-    <%= form.text_field :text %>
-  </fieldset>
+      <fieldset class="mb-3">
+        <%= form.label :text, "Type:", { class: "form-label" } %>
+        <%= form.text_field :type_of, { class: "form-control" } %>
+      </fieldset>
 
-  <fieldset>
-    <%= form.label :text, "Type:" %>
-    <%= form.text_field :type_of %>
-  </fieldset>
-
-  <fieldset>
-    <%= form.submit "Create New Entity" %>
-  </fieldset>
-<% end %>
+      <fieldset class="mb-3">
+        <%= form.submit "Create New Entity", { class: "btn btn-primary" } %>
+      </fieldset>
+    <% end %>
+  </section>
+</section>
