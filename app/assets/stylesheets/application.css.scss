@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+
 span.entity {
     display: inline-block;
     padding: 6px 9px;
